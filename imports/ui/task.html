@@ -1,0 +1,60 @@
+<template name="task">
+
+  <div class="card {{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+      <div class="content">
+        <div class="header">
+            {{username}} 
+            {{#if isOwner}}
+    <div class="ui toggle checkbox teal toggle-private right" id="toogle">
+          <input type="checkbox" checked="{{private}}">
+          <label>{{#if private}}
+              Private
+            {{else}}
+              Public
+            {{/if}}</label>
+        </div>
+        {{else}}
+        {{#if checked}}
+                  <i class="check circle teal icon" id="check"></i>
+                  {{else}}
+                  <i class="window close teal icon" id="check"></i>
+                  {{/if}}
+    {{/if}}
+        </div>
+        <div class="meta">
+            
+        </div>
+        <div class="description">
+            {{text}}
+        </div>
+      </div>
+      {{#if isOwner}}
+      <div class="extra content">
+          <div class="ui two buttons">
+              <div class="ui teal button toggle-checked">
+                  {{#if checked}}
+                  <i class="check circle icon"></i>
+                  Complete
+                  {{else}}
+              Incomplete
+                  {{/if}}
+      <!--            <div class="ui teal checkbox toggle-checked">
+                      <input type="checkbox" checked="{{checked}}" />
+                      <label>
+                          {{#if checked}}
+                        Complete
+                        {{else}}
+                    Incomplete
+                        {{/if}}
+                      </label>
+                  </div> -->
+                  </div>
+              <div class="ui bottom red inverted attached button delete">
+                  <i class="trash icon"></i>
+                  Delete
+                </div>
+            </div>
+          
+      </div>{{/if}}
+    </div>
+</template>
